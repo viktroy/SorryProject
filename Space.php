@@ -12,39 +12,38 @@ class Space {
 	private bool $isSafeZone = false;
 
 	function __construct(int $absNumber) {
-		this->$absNumber = $absNumber;
+		$this->absNumber = $absNumber;
 	}
 
 	function makeStartSpace($color) {
-		this->$color = $color;
-		if (this->$isHome || this->$isSafeZone) {
-			print("<p>Error: Space " . this->$absNumber . " cannot have multiple special designations.");		
+		$this->color = $color;
+		if ($this->isHome || $this->isSafeZone) {
+			print("<p>Error: Space " . $this->absNumber . " cannot have multiple special designations.");		
 		}
 		else {
-			this->$isStart = true;
+			$this->isStart = true;
 		}
 	}
 
 	function makeSafeZoneSpace($color) {
-		this->$color = $color;
-		if (this->$isStart || this->$isHome) {
-			print("<p>Error: Space " . this->$absNumber . " cannot have multiple special designations.");
+		$this->color = $color;
+		if ($this->isStart || $this->isHome) {
+			print("<p>Error: Space " . $this->absNumber . " cannot have multiple special designations.");
 		}
 		else {
-			this->$isSafeZone = true;
+			$this->isSafeZone = true;
 		}
 	}
 
 	function makeHomeSpace($color) {
-		this->$color = $color
-		if (this->$isStart || this->$isSafeZone) {
-			print("<p>Error: Space " . this->$absNumber . " cannot have multiple special designations.");
+		$this->$color = $color
+		if ($this->isStart || $this->isSafeZone) {
+			print("<p>Error: Space " . $this->absNumber . " cannot have multiple special designations.");
 		}
 		else {
-			this->$isHome = true;
+			$this->isHome = true;
 		}
 	}
-
 }
 
 ?>
