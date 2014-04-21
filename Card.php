@@ -12,19 +12,21 @@ class Card {
 	function __construct($cardVal, int $forward, int $backward, bool $swap, bool $sorry, bool $startable, bool $splittable, bool $drawAgain) {
 		$this->cardVal = $cardVal;
 		if ($forward > 0) {
-			
+
 		}
 
 		$this->splittable = $splittable;
 		$this->startable = $startable;
 		$this->drawAgain = $drawAgain;
+
+		print "Card object created.";
 	}
 
 	function toString() {
 		$cardStr = string($cardVal) + ' ';
-		$moveTypes = array_keys($moves)
-		foreach $moveTypes as $moveType {
-			$cardStr += $moveType + ": " + $moves[$moveType] + "\n"
+		$moveTypes = array_keys($moves);
+		foreach ($moveTypes as $moveType) {
+			$cardStr += $moveType + ": " + $moves[$moveType] + "\n";
 		}
 	}
 }

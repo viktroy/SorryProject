@@ -10,13 +10,14 @@ class Deck extends ArrayObject {
 
 	function __construct(array $cards) {
 		$deck = array();
-		foreach $cards as $card {
+		foreach ($cards as $card) {
 			if (! is_a($card, 'Card')) {
 				echo "Error: Deck object can only be constructed from an array of Card objects.";
 				break;
 			}
-			$this->addCard($card;
+			$this->addCard($card);
 		}
+		print "Deck object created.";
 	}
 
 	function addCard(Card $card) {
@@ -45,71 +46,10 @@ class Deck extends ArrayObject {
 
 	function toString() {
 		$deckStr = '';
-		foreach $deck as $card {
+		foreach ($deck as $card) {
 			$deckStr += $card->toString() + "\n";
 		}
 	}
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	}
-
-
-
-}
