@@ -1,0 +1,313 @@
+.tile {
+	
+	
+}
+
+.redPiece {
+	background-image: url("redPiece.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.start_yellow {
+	background-image: url("tile_startYellow.jpg");
+	background-repeat: no-repeat;
+	
+	background-position: center;
+}
+
+
+
+
+.start_red {
+	background-image: url("tile_startRed.jpg");
+	background-repeat: no-repeat;
+	
+	background-position: center;
+}
+
+
+.start_green {
+	background-image: url("tile_startGreen.jpg");
+	background-repeat: no-repeat;
+	
+	background-position: center;
+}
+
+
+.start_blue {
+	background-image: url("tile_startBlue.jpg");
+	background-repeat: no-repeat;
+	
+	background-position: center;
+}
+
+
+.board {
+	width:1200px;
+	height: 1000px;
+	margin: 0px auto 0px auto;
+}
+
+.board td {
+	width: 100px;
+	height: 80px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000;
+}
+
+
+/* ^^^^^^^^^^^^ */
+
+.row {
+	border: 1px solid red;
+	width: 1052px;
+	height: 60px;
+}
+
+.cellBody {
+	border: 1px solid blue;
+	width: 60px; 
+	height: 60px;
+	display: inline-block;
+}
+
+/* $$$$$$$$$$ yellow $$$$$$$$$$ */
+
+.safeZoneyellow{
+	background: #ffff00;
+	width: 60px;
+	height: 60px;
+}
+.slideEnd_yellow {
+	background-image: url("tile_startYellow.jpg");
+	background-repeat: no-repeat;
+	
+	width: 60px;
+	height: 60px;
+	background-size: 60px;
+
+}
+
+.slide_yellow {
+	background-image: url("tile_slideYellow.jpg");
+	background-position: center;
+	width: 60px;
+	height: 60px;
+	
+}
+.slideStart_yellow {
+	background-image: url("tile_slideYellowArrow.jpg");
+	background-position: center;
+	width: 60px;
+	height: 60px;	
+
+}
+.startCell_yellow {
+	border: 1px solid red;
+	width: 182px;
+	height: 182px;
+	background-image: url("start_yellow.jpg");
+}
+/* $$$$$$$$$$ red $$$$$$$$$$ */
+
+.safeZonered {
+	background: #ff0000;
+	width: 60px;
+	height: 60px;
+}
+.slideEnd_red {
+	background-image: url("tile_startRed.jpg");
+	background-repeat: no-repeat;
+	
+	width: 60px;
+	height: 60px;
+	background-size: 60px;
+
+}
+.slide_red {
+	background-image: url("tile_slideRed.jpg");
+	background-position: center;
+	width: 60px;
+	height: 60px;
+	
+}
+.slideStart_red {
+	background-image: url("tile_slideRedArrow.jpg");
+	background-position: center;	
+	width: 60px;
+	height: 60px;
+}
+.startCell_red {
+	border: 1px solid red;
+	width: 182px;
+	height: 182px;
+	background-image: url("start_green.jpg");
+}
+
+/* $$$$$$$$$$ green $$$$$$$$$$ */
+
+.safeZonegreen{
+	background: #007c00;
+	width: 60px;
+	height: 60px;
+}
+.slideEnd_green {
+	background-image: url("tile_startGreen.jpg");
+	background-repeat: no-repeat;
+	
+	width: 60px;
+	height: 60px;
+	background-size: 60px;
+
+}
+.slide_green {
+	background-image: url("tile_slideGreen.jpg");
+	background-position: center;
+	width: 60px;
+	height: 60px;
+	
+}
+.slideStart_green {
+	background-image: url("tile_slideGreenArrow.jpg");
+	background-position: center;	
+	width: 60px;
+	height: 60px;
+}
+.startCell_green {
+	border: 1px solid red;
+	width: 182px;
+	height: 182px;
+	background-image: url("start_red.jpg");
+}
+/* $$$$$$$$$$ blue $$$$$$$$$$ */
+
+.safeZoneblue{
+	background: #0000ff;
+	width: 60px;
+	height: 60px;
+}
+
+.slideEnd_blue {
+	background-image: url("tile_startBlue.jpg");
+	background-repeat: no-repeat;
+	
+	width: 60px;
+	height: 60px;
+	background-size: 60px;
+
+}
+.slide_blue {
+	background-image: url("tile_slideBlue.jpg");
+	background-position: center;	
+	width: 60px;
+	height: 60px;
+}
+.slideStart_blue {
+	background-image: url("tile_slideBlueArrow.jpg");
+	background-position: center;	
+	width: 60px;
+	height: 60px;
+}
+.startCell_blue {
+	border: 1px solid red;
+	width: 182px;
+	height: 182px;
+	background-image: url("start_blue.jpg");
+}
+
+
+
+
+.homeCell_green {
+	background-image: url("home_green.jpg");
+	width: 182px;
+	height: 182px;
+}
+.homeCell_yellow {
+	background-image: url("home_yellow.jpg");
+	width: 182px;
+	height: 182px;
+}
+.homeCell_red {
+	background-image: url("home_red.jpg");
+	width: 182px;
+	height: 182px;
+}
+.homeCell_blue {
+	background-image: url("home_blue.jpg");
+	width: 182px;
+	height: 182px;
+}
+/*
+.cell2 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell3 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell4 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell5 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell6 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell7 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell8 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell9 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell10 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell11 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell12 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell13 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell14 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}
+.cell15 {
+	border: 1px solid red;
+	width: 100px;
+	height: 100px;
+}*/

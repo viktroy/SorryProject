@@ -1,20 +1,34 @@
 <?php
-	
-	
-
-	
-
-	
-
-	class Move {
-
+/*	
+class Space {
+	function __construct(int $cellNum) {
+		echo '<div class="cellBody">';
+		echo '<div class="cell'.$cellNum.'">';
+		echo $cellNum;
+		echo '</div>';
 	}
+}
+
+class Board {
+	
+
+   	function __construct() {
+       for ($i = 0; $i < 88; $i++) {
+			$this->$spaces[$i] = new Space($i);
+		
+		}
+   }
+}*/
+
+	include ('../Board.php');
+	include ('../Space.php');
 
 
-
+?>
 
 <html>
 	<head>
+		<link href="master.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
@@ -113,10 +127,10 @@
 		?>
 
 		<p>Spaces numbered in forward direction from start. 0=Start, 66=Home.</p>
-		<form name="randomButton" action="/~vtroiano/CS205/Sorry/testing/AITest.php" method="post">
+		<form name="randomButton" action="./AITest.php" method="post">
 			<input type="submit" name="cmdRandomize" value="Random Placement">
 		</form>
-		<form name="sorryAI" action="/~vtroiano/CS205/Sorry/testing/AITest.php" method="post">
+		<form name="sorryAI" action="./AITest.php" method="post">
 			<fieldset>
 				<p>Red Pawn Locations (relative to Red Start):</p>
 				<input name="redPawn1" type="number" min="0" max="66" value=
@@ -291,5 +305,620 @@
 			</fieldset>
 			<input type="submit" name="cmdSubmitted" vlaue="submit">
 		</form>
+
+		<?php 
+
+			$board = new Board;
+
+			$board->displayBoard();
+			/*
+			$cellID = 0;
+			$boardID = 0;
+
+				for ($row = 0; $row < 16; $row++) {
+					print ' <div class="row"> <!-- Row ' . $row .' --> ';
+
+						
+						switch ($row) {
+						    case 0:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						   			print ' <div class="cellBody">';
+									print ' <div class="cell'.$cellID.'">';
+									print $cellID . '</div>';
+									print ' </div>';
+									$cellID++;
+									$boardID++;
+								}
+						        break;
+						    case 1:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+						    case 2:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 3:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 4:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 5:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 6:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 7:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 8:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 9:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 10:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 11:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 12:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 13:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 14:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	if ($cell == 0 || $cell == 15) {
+						        		print ' <div class="cellBody">';
+						        		print '<div class="cell'.$cellID.'">';
+						        		print $cellID. '</div>';
+						        		print ' </div>';
+						        		$cellID++;
+						        		$boardID++;
+						        	} 
+						        	else {
+						        		print ' <div class="cellBody">';
+						        		print ' <div class="inner'.$boardID.'">';
+										print $boardID . '</div>';
+										print ' </div>';
+										$boardID++;
+						        	}
+									
+								}
+						        break;
+							case 15:
+						        for ($cell = 0; $cell < 16; $cell++) {
+						        	print ' <div class="cellBody">';
+									print ' <div class="cell'.$cellID.'">';
+									print $cellID . '</div>';
+									print ' </div>';
+									$cellID++;
+									$boardID++;
+								}
+						        break;
+
+						}
+						
+					print '</div>';
+				}*/
+
+			?>
+			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<table class="board">
+			
+			<tr> <!-- Row 1 -->
+				<td class="tile">1</td>
+				<td class="slide_yellowStart">slideArrow</td>
+				<td class="slide_yellow">slide</td>
+				<td class="slide_yellow">slide</td>
+				<td class="start_yellow">start</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="slide_yellowStart">slideArrow</td>
+				<td class="slide_yellow">slide</td>
+				<td class="slide_yellow">slide</td>
+				<td class="slide_yellow">slide</td>
+				<td class="start_yellow">slideEnd</td>
+				<td class="tile">15</td>
+				<td class="tile">16</td>
+			</tr>
+			<tr> <!-- Row 2 -->
+				<td class="tile">1</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="slide_greenStart">slideArrow</td>
+			</tr>
+			<tr> <!-- Row 3 -->
+				<td class="start_blue">slideEnd</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="slide_green">slide</td>
+			</tr>
+			<tr> <!-- Row 4 -->
+				<td class="slide_blue">slide</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="slide_green">slide</td>
+			</tr>
+			<tr> <!-- Row 5 -->
+				<td class="slide_blue">slide</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="start_green">start</td>
+			</tr>
+			<tr> <!-- Row 6 -->
+				<td class="slide_blue">slide</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="tile">16</td>
+			</tr>
+			<tr> <!-- Row 7 -->
+				<td class="slide_blueStart">slideArrow</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="tile">16</td>
+			</tr>
+			<tr> <!-- Row 8 -->
+				<td class="tile">1</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="tile">16</td>
+			</tr>
+			<tr> <!-- Row 9 -->
+				<td class="tile">1</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="tile">16</td>
+			</tr>
+			<tr> <!-- Row 10 -->
+				<td class="tile">1</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="slide_greenStart">slideArrow</td>
+			</tr>
+			<tr> <!-- Row 11 -->
+				<td class="tile">1</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="slide_green">slide</td>
+			</tr>
+			<tr> <!-- Row 12 -->
+				<td class="start_blue">start</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="slide_green">slide</td>
+			</tr>
+			<tr> <!-- Row 13 -->
+				<td class="slide_blue">slide</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="slide_green">slide</td>
+			</tr>
+			<tr> <!-- Row 14 -->
+				<td class="slide_blue">slide</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="start_green">slideEnd</td>
+			</tr>
+			<tr> <!-- Row 15 -->
+				<td class="slide_blueStart">slideArrow</td>
+				<td class="tile">2</td>
+				<td class="tile">3</td>
+				<td class="tile">4</td>
+				<td class="tile">5</td>
+				<td class="tile">6</td>
+				<td class="tile">7</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="tile">12</td>
+				<td class="tile">13</td>
+				<td class="tile">14</td>
+				<td class="tile">15</td>
+				<td class="tile">16</td>
+			</tr>
+			<tr> <!-- Row 16 -->
+				<td class="tile">1</td>
+				<td class="tile">2</td>
+				<td class="start_red">slideEnd</td>
+				<td class="slide_red">slide</td>
+				<td class="slide_red">slide</td>
+				<td class="slide_red">slide</td>
+				<td class="slide_redStart">slideArrow</td>
+				<td class="tile">8</td>
+				<td class="tile">9</td>
+				<td class="tile">10</td>
+				<td class="tile">11</td>
+				<td class="start_red">start</td>
+				<td class="slide_red">slide</td>
+				<td class="slide_red">slide</td>
+				<td class="slide_redStart">slideArrow</td>
+				<td class="tile">16</td>
+			</tr>
+			
+		</table>
 	</body>
 </html>
