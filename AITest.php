@@ -1,17 +1,4 @@
 <?php
-	
-	
-
-	
-
-	
-
-	class Move {
-
-	}
-
-
-
 
 <html>
 	<head>

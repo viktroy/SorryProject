@@ -8,9 +8,11 @@ class Card {
 	private $splittable;
 	private $startable;
 	private $drawAgain;
+	private $description;
 
-	function __construct($cardVal, int $forward, int $backward, bool $swap, bool $sorry, bool $startable, bool $splittable, bool $drawAgain) {
+	function __construct($cardVal, $cardDescrip, int $forward, int $backward, bool $swap, bool $sorry, bool $startable, bool $splittable, bool $drawAgain) {
 		$this->cardVal = $cardVal;
+		$this->description = $cardDescrip;
 		if ($forward > 0) {
 
 		}
@@ -23,7 +25,7 @@ class Card {
 	}
 
 	function toString() {
-		$cardStr = string($cardVal) + ' ';
+		$cardStr = string($this->cardVal) + " " + $this->description + "\n";
 		$moveTypes = array_keys($moves);
 		foreach ($moveTypes as $moveType) {
 			$cardStr += $moveType + ": " + $moves[$moveType] + "\n";
