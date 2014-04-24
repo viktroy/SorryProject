@@ -101,6 +101,12 @@ class Board {
 		$this->spaces[124]->makeHomeSpace('red');
 		$this->spaces[198]->makeHomeSpace('blue');
 
+		//Deck Space
+		
+
+		//test pawn
+		//$this->spaces[5]->occupySpace('yellow');
+
 		//$this->spaces[18]->makeSlideSpace('yellow');
 		/*$this->spaces[69]->makeHomeSpace('red');
 		$this->spaces[75]->makeHomeSpace('blue');

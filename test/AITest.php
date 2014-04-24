@@ -22,6 +22,9 @@ class Board {
 
 	include ('../Board.php');
 	include ('../Space.php');
+	include ('../Game.php');
+	include ('../Deck.php');
+	include ('../Card.php');
 
 
 ?>
@@ -34,6 +37,30 @@ class Board {
 	<body>
 		
 		<?php
+			$cardCount = 0;
+
+			//$game = new Game;
+
+			$deck = new Deck;
+
+			
+
+			print "deck created <br />";
+
+			$deck->deckShuffle();
+
+			print "deck shuffled <br />";
+
+			for ($i=0; $i<45; $i++){
+				print $i.":   ";
+				print $deck->cards[$i]->toString();
+				
+			}
+
+			$board = new Board;
+
+			
+
 
 			//Set array of card descriptions.
 			$descriptions[0] = "Swap a Pawn from Start with an opponent's Pawn.";
@@ -100,7 +127,7 @@ class Board {
 				}
 			}
 
-			if ($formSent || $randomSent) {
+			if ($formSent) {
 
 				print("Red Pawns:<br/>");
 				foreach($redPawns as $redPawn) {
@@ -121,6 +148,44 @@ class Board {
 				print("<br/>Red's Card:<br/>");
 				print($card . "<br/>");
 				print($descriptions[$card] . "<br/>");
+
+
+				//TEST
+
+				
+				if ($cardCount>45){
+					$cardCount=0;
+					$deck->deckShuffle();
+					print "END OF DECK <br />";
+					print "deck shuffled <br />";
+				}
+
+				print $cardCount;
+				$board->spaces[101]->makeDeckSpace($deck->cards[$cardCount]->cardValue());
+
+
+				$board->spaces[$yellowPawns[0]]->occupySpace('yellow');
+				$board->spaces[$yellowPawns[1]]->occupySpace('yellow');
+				$board->spaces[$yellowPawns[2]]->occupySpace('yellow');
+				$board->spaces[$yellowPawns[3]]->occupySpace('yellow');
+
+				$board->spaces[$redPawns[0]]->occupySpace('red');
+				$board->spaces[$redPawns[1]]->occupySpace('red');
+				$board->spaces[$redPawns[2]]->occupySpace('red');
+				$board->spaces[$redPawns[3]]->occupySpace('red');
+
+				$board->spaces[$greenPawns[0]]->occupySpace('green');
+				$board->spaces[$greenPawns[1]]->occupySpace('green');
+				$board->spaces[$greenPawns[2]]->occupySpace('green');
+				$board->spaces[$greenPawns[3]]->occupySpace('green');
+
+				$board->spaces[$bluePawns[0]]->occupySpace('blue');
+				$board->spaces[$bluePawns[1]]->occupySpace('blue');
+				$board->spaces[$bluePawns[2]]->occupySpace('blue');
+				$board->spaces[$bluePawns[3]]->occupySpace('blue');
+
+				$board->displayBoard();
+
 
 			}
 
@@ -308,9 +373,7 @@ class Board {
 
 		<?php 
 
-			$board = new Board;
-
-			$board->displayBoard();
+			
 			/*
 			$cellID = 0;
 			$boardID = 0;
@@ -627,10 +690,10 @@ class Board {
 				}*/
 
 			?>
-			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<!--	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 		<table class="board">
 			
-			<tr> <!-- Row 1 -->
+			<tr> 
 				<td class="tile">1</td>
 				<td class="slide_yellowStart">slideArrow</td>
 				<td class="slide_yellow">slide</td>
@@ -648,7 +711,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="tile">16</td>
 			</tr>
-			<tr> <!-- Row 2 -->
+			<tr> 
 				<td class="tile">1</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -666,7 +729,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="slide_greenStart">slideArrow</td>
 			</tr>
-			<tr> <!-- Row 3 -->
+			<tr> 
 				<td class="start_blue">slideEnd</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -684,7 +747,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="slide_green">slide</td>
 			</tr>
-			<tr> <!-- Row 4 -->
+			<tr> 
 				<td class="slide_blue">slide</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -702,7 +765,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="slide_green">slide</td>
 			</tr>
-			<tr> <!-- Row 5 -->
+			<tr> 
 				<td class="slide_blue">slide</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -720,7 +783,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="start_green">start</td>
 			</tr>
-			<tr> <!-- Row 6 -->
+			<tr> 
 				<td class="slide_blue">slide</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -738,7 +801,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="tile">16</td>
 			</tr>
-			<tr> <!-- Row 7 -->
+			<tr> 
 				<td class="slide_blueStart">slideArrow</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -756,7 +819,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="tile">16</td>
 			</tr>
-			<tr> <!-- Row 8 -->
+			<tr> 
 				<td class="tile">1</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -774,7 +837,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="tile">16</td>
 			</tr>
-			<tr> <!-- Row 9 -->
+			<tr> 
 				<td class="tile">1</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -792,7 +855,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="tile">16</td>
 			</tr>
-			<tr> <!-- Row 10 -->
+			<tr> 
 				<td class="tile">1</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -810,7 +873,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="slide_greenStart">slideArrow</td>
 			</tr>
-			<tr> <!-- Row 11 -->
+			<tr> 
 				<td class="tile">1</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -828,7 +891,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="slide_green">slide</td>
 			</tr>
-			<tr> <!-- Row 12 -->
+			<tr> 
 				<td class="start_blue">start</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -846,7 +909,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="slide_green">slide</td>
 			</tr>
-			<tr> <!-- Row 13 -->
+			<tr> 
 				<td class="slide_blue">slide</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -864,7 +927,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="slide_green">slide</td>
 			</tr>
-			<tr> <!-- Row 14 -->
+			<tr> 
 				<td class="slide_blue">slide</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -882,7 +945,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="start_green">slideEnd</td>
 			</tr>
-			<tr> <!-- Row 15 -->
+			<tr> 
 				<td class="slide_blueStart">slideArrow</td>
 				<td class="tile">2</td>
 				<td class="tile">3</td>
@@ -900,7 +963,7 @@ class Board {
 				<td class="tile">15</td>
 				<td class="tile">16</td>
 			</tr>
-			<tr> <!-- Row 16 -->
+			<tr> 
 				<td class="tile">1</td>
 				<td class="tile">2</td>
 				<td class="start_red">slideEnd</td>
@@ -919,6 +982,6 @@ class Board {
 				<td class="tile">16</td>
 			</tr>
 			
-		</table>
+		</table>-->
 	</body>
 </html>

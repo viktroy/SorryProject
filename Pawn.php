@@ -2,23 +2,23 @@
 
 class Pawn {
 
-	private $relLocation = '';
+	private int $relLocation;
 	private $pawnColor = ''
 
-	public function Pawn($color, $relLoc) {
-		this->$pawnColor = $color;
-		this->$relLocation = $relLoc;
+	public function Pawn($color, int $relLoc) {
+		$this->pawnColor = $color;
+		$this->relLocation = $relLoc;
 	}
 
-	public function setRelLocation($relLoc) {
-		this->$relLocation = $relLoc;
+	public function setRelLocation(int $relLoc) {
+		$this->relLocation = $relLoc;
 	}
 
 	public function getRelLocation() {
-		return this->$relLocation;
+		return $this->relLocation;
 	}
 
-	public function getAbsSpace() {
+	public function getAbsLocation() {
 	/*
 	Start spaces: 0, 1, 2, and 3 in clockwise order from Red
 	Main track: 4-63, clockwise from Red Start
@@ -28,7 +28,7 @@ class Pawn {
 	Green Safe Zone: 82-87 (Home is 87)
 	*/
 
-	$relLoc = this->$relLocation;
+	$relLoc = $this->$relLocation;
 
 		if (color == 'red') {
 			if ($relLoc == 0) {
