@@ -17,6 +17,7 @@ class Space {
 	private $isOccupied = false;
 	private $isDeck = false;
 	private $cardNum = '';
+	private $startPawnNum = 0;
 
 
 	function __construct($absNumber) {
@@ -38,8 +39,9 @@ class Space {
 		$this->cardNum = $cardNum;
 	}
 
-	function makeStartSpace($color) {
+	function makeStartSpace($color, $pawnNum) {
 		$this->color = $color;
+		$this->startPawnNum = $pawnNum;
 		if ($this->isHome || $this->isSafeZone) {
 			print("<p>Error: Space " . $this->absNumber . " cannot have multiple special designations.");		
 		}
@@ -102,6 +104,66 @@ class Space {
 		$this->pieceColor = $color;
 
 		$this->isOccupied = true;
+	}
+
+	function unOccupySpace($color) {
+		$this->pieceColor = '';
+
+		$this->isOccupied = false;
+	}
+
+	function something() {
+		$text='';
+
+		if ($this->isStart){
+			$text = 'startCell_'.$this->color.'_'.$this->startPawnNum;
+		}
+		elseif ($this->isDeck){
+			$text = 'drawnDeck_'.$this->cardNum;
+		}
+		elseif ($this->isSafeZone){
+			$text = 'safeZone'.$this->color;
+		}
+		elseif ($this->isHome){
+			$text = 'homeCell_'.$this->color;
+		}
+		elseif ($this->isSlide){
+			if ($this->isOccupied){
+				$text = 'pawnSlide_'.$this->color.'_'.$this->pieceColor;
+			}
+			else {
+				$text = 'slide_'.$this->color;
+			}
+			
+		}
+		elseif ($this->isSlideStart){
+			if ($this->isOccupied){
+				$text = 'pawnSlideStart_'.$this->color.'_'.$this->pieceColor;
+			}
+			else {
+				$text = 'slideStart_'.$this->color;
+			}
+			
+		}
+		elseif ($this->isSlideEnd){
+			if ($this->isOccupied){
+				$text = 'pawnSlideEnd_'.$this->color.'_'.$this->pieceColor;
+			}
+			else {
+				$text = 'slideEnd_'.$this->color;
+			}
+			
+		}
+		else {
+			if ($this->isOccupied){
+				$text = 'pawn_'.$this->pieceColor;
+			}
+			else {
+				$text = 'cell'.$this->absNumber;
+			}
+			
+		}
+		return $text;
 	}
 
 	function displaySpaces() {

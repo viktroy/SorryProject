@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*	
 class Space {
 	function __construct(int $cellNum) {
@@ -27,6 +28,20 @@ class Board {
 	include ('../Card.php');
 
 
+	if (!isset($_SESSION['deck'])) {
+		$deck = new Deck;
+		$_SESSION['deck'] = $deck;
+	} else {
+		$deck = $_SESSION['deck'];
+	}
+
+	if (!isset($_SESSION['board'])) {
+		$board = new Board;
+		$_SESSION['board'] = $board;
+	} else {
+		$board = $_SESSION['board'];
+	}
+
 ?>
 
 <html>
@@ -41,13 +56,13 @@ class Board {
 
 			//$game = new Game;
 
-			$deck = new Deck;
+			//$deck = new Deck;
 
 			
 
-			print "deck created <br />";
+			//print "deck created <br />";
 
-			$deck->deckShuffle();
+			//$deck->deckShuffle();
 
 			print "deck shuffled <br />";
 
@@ -57,7 +72,7 @@ class Board {
 				
 			}
 
-			$board = new Board;
+			//$board = new Board;
 
 			
 

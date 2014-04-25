@@ -50,7 +50,7 @@ class Deck extends ArrayObject {
 			$this->cards[] = new Card(3, $this->cardDescrips[3], 3, 0, false, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[4]; $i++) {
-			$this->cards[] = new Card(4, $this->cardDescrips[4], 0, 4, false, false, false, false, false);
+			$this->cards[] = new Card(-4, $this->cardDescrips[4], 0, 4, false, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[5]; $i++) {
 			$this->cards[] = new Card(5, $this->cardDescrips[5], 5, 0, false, false, false, false, false);
@@ -77,11 +77,11 @@ class Deck extends ArrayObject {
 		$numCards = count($this->cards);
 		print "Number of Cards: ".$numCards."<br />";
 
-		for ($i=0; $i<45; $i++){
+		/*for ($i=0; $i<45; $i++){
 			print $i.":   ";
 			print $this->cards[$i]->toString();
 			
-		}
+		}*/
 
 	}
 

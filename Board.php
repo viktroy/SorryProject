@@ -90,10 +90,10 @@ class Board {
 		}
 
 		//Start Space
-		$this->spaces[19]->makeStartSpace('yellow');
-		$this->spaces[60]->makeStartSpace('red');
-		$this->spaces[202]->makeStartSpace('green');
-		$this->spaces[161]->makeStartSpace('blue');
+		$this->spaces[19]->makeStartSpace('yellow', 4);
+		$this->spaces[60]->makeStartSpace('green', 4);
+		$this->spaces[202]->makeStartSpace('red', 4);
+		$this->spaces[161]->makeStartSpace('blue', 4);
 
 		//End Space
 		$this->spaces[23]->makeHomeSpace('green');
@@ -101,6 +101,7 @@ class Board {
 		$this->spaces[124]->makeHomeSpace('red');
 		$this->spaces[198]->makeHomeSpace('blue');
 
+		//$this->spaces[2]->occupySpace('yellow');
 		//Deck Space
 		
 
@@ -114,6 +115,10 @@ class Board {
 		$this->spaces[87]->makeHomeSpace('green');*/
 
 
+	}
+
+	public function deckSpace($spaceID){
+		$this->spaces[$spaceID]->makeDeckSpace($deck->cards[$cardCount]->cardValue());
 	}
 
 	public function displayBoard(){

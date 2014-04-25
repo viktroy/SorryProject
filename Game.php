@@ -7,94 +7,91 @@ class Game {
 	//private $moveTypes = array("forward", "backward", "swap", "sorry");
 	
 
-	private $cardDescrips = array(      1 => "Move a Pawn from Start or 1 space forward.",
-								           "Move a Pawn from Start or 2 spaces forward.",
-								           "Move a Pawn 3 spaces forward.",
-								           "Move a Pawn 4 spaces backward.",
-								           "Move a Pawn 5 spaces forward.",
-								           "6 card does not exist.",
-								           "Move a Pawn 7 spaces forward or split them between two Pawns.",
-								           "Move a Pawn 8 spaces forward.",
-								           "9 card does not exist.",
-								           "Move a Pawn 10 spaces forward or 1 space backward.",
-								           "Move a Pawn 11 spaces forward or swap it with an opponent's Pawn.",
-								           "Move a Pawn 12 spaces forward.",
-								  "sorry" => "Swap a Pawn from Start with an opponent's Pawn, which is sent back to its Start.",
-								  );
-
 	private $pawnLocations = array();
 
-	function __construct() {
-		$cardDist = array(   	      1 => 5,
-								  	   	   4,
-									  	   4,
-									   	   4,
-									  	   4,
-									  	   0,
-								 	       4,
-									  	   4,
-									  	   0,
-									       4,
-								   		   4,
-								 	       4,
-								"sorry" => 4 );
-		//Construct Card objects.
-		$cards = array();
-		
+	function continueGame($decks) {
+		$decks = $deck;
+		$deck->drawCard();
 
-		for ($i=0; $i < $cardDist[1]; $i++) {
-							//val, f, b, swap, sorry, start, split, again	
-			$cards[] = new Card(1, $this->cardDescrips[1], 1, 0, false, false, true, false, false);
-		}
-		for ($i=0; $i < $cardDist[2]; $i++) {
-			$cards[] = new Card(2, $this->cardDescrips[2], 2, 0, false, false, true, false, true);
-		}
-		for ($i=0; $i < $cardDist[3]; $i++) {
-			$cards[] = new Card(3, $this->cardDescrips[3], 3, 0, false, false, false, false, false);
-		}
-		for ($i=0; $i < $cardDist[4]; $i++) {
-			$cards[] = new Card(4, $this->cardDescrips[4], 0, 4, false, false, false, false, false);
-		}
-		for ($i=0; $i < $cardDist[5]; $i++) {
-			$cards[] = new Card(5, $this->cardDescrips[5], 5, 0, false, false, false, false, false);
-		}
-		for ($i=0; $i < $cardDist[7]; $i++) {
-			$cards[] = new Card(7, $this->cardDescrips[7], 7, 0, false, false, false, true, false);
-		}
-		for ($i=0; $i < $cardDist[8]; $i++) {
-			$cards[] = new Card(8, $this->cardDescrips[8], 8, 0, false, false, false, false, false);
-		}
-		for ($i=0; $i < $cardDist[10]; $i++) {
-			$cards[] = new Card(10, $this->cardDescrips[10], 10, 1, false, false, false, false, false);
-		}
-		for ($i=0; $i < $cardDist[11]; $i++) {
-			$cards[] = new Card(11, $this->cardDescrips[11], 11, 0, true, false, false, false, false);
-		}
-		for ($i=0; $i < $cardDist[12]; $i++) {
-			$cards[] = new Card(12, $this->cardDescrips[12], 12, 0, false, false, false, false, false);
-		}
-		for ($i=0; $i<$cardDist["sorry"]; $i++) {
-			$cards[] = new Card("sorry", $this->cardDescrips["sorry"], 0, 0, false, true, true, false, false);
-		}
+		$board->displayBoard();
+	}
 
-		$numCards = count($cards);
-		print "Number of Cards: ".$numCards;
+	function startGame() {
+		$cardCount = 0;
+		$redPawns[0] = 0;
+		$redPawns[1] = 1;
+		$redPawns[2] = 2;
+		$redPawns[3] = 3;
+				
+		$greenPawns[0] = 4;
+		$greenPawns[1] = 5;
+		$greenPawns[2] = 6;
+		$greenPawns[3] = 7;
+				
+		$yellowPawns[0] = 8;
+		$yellowPawns[1] = 9;
+		$yellowPawns[2] = 10;
+		$yellowPawns[3] = 11;
+				
+		$bluePawns[0] = 12;
+		$bluePawns[1] = 13;
+		$bluePawns[2] = 14;
+		$bluePawns[3] = 15;
 
-		print "<p>Something</p>";
+		$deck = new Deck;
+		print "deck created <br />";
+
+		$deck->deckShuffle();
+
+		print "deck shuffled <br />";
 
 		for ($i=0; $i<45; $i++){
 			print $i.":   ";
-			print $cards[$i]->toString();
-			print "\r";
+			print $deck->cards[$i]->toString();
+				
 		}
 
-		$deck = new Deck($cards);
 		
-		//$deckStr .= "Deck: ";
-		//$deckStr .= $deck->toString();
-		//print($deckStr);
-		$deck->deckShuffle($deck);
-		print "Game object created.";
+
+		print $cardCount;
+
+		if ($cardCount>45){
+			$cardCount=0;
+			$deck->deckShuffle();
+			print "END OF DECK <br />";
+			print "deck shuffled <br />";
+		}
+
+		$board->spaces[101]->makeDeckSpace($deck->cards[$cardCount]->cardValue());
+
+		print '<div class="board">';
+		$board->displayBoard();
+		print '</div>';
+
+
+		/*$board->spaces[$yellowPawns[0]]->occupySpace('yellow');
+		$board->spaces[$yellowPawns[1]]->occupySpace('yellow');
+		$board->spaces[$yellowPawns[2]]->occupySpace('yellow');
+		$board->spaces[$yellowPawns[3]]->occupySpace('yellow');
+
+		$board->spaces[$redPawns[0]]->occupySpace('red');
+		$board->spaces[$redPawns[1]]->occupySpace('red');
+		$board->spaces[$redPawns[2]]->occupySpace('red');
+		$board->spaces[$redPawns[3]]->occupySpace('red');
+
+		$board->spaces[$greenPawns[0]]->occupySpace('green');
+		$board->spaces[$greenPawns[1]]->occupySpace('green');
+		$board->spaces[$greenPawns[2]]->occupySpace('green');
+		$board->spaces[$greenPawns[3]]->occupySpace('green');
+
+		$board->spaces[$bluePawns[0]]->occupySpace('blue');
+		$board->spaces[$bluePawns[1]]->occupySpace('blue');
+		$board->spaces[$bluePawns[2]]->occupySpace('blue');
+		$board->spaces[$bluePawns[3]]->occupySpace('blue');*/
+
+
+
+		
 	}
 
 	

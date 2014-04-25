@@ -21,10 +21,11 @@ class Card {
 		$this->startable = $startable;
 		$this->drawAgain = $drawAgain;
 
-		print "Card object created.";
+		//print "Card object created.";
 	}
 
-	function cardValue () {
+	function cardValue() {
+		
 		return $this->cardVal;
 	}
 
