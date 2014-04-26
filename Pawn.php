@@ -2,16 +2,20 @@
 
 class Pawn {
 
-	private int $relLocation;
-	private $pawnColor = ''
+	private $relLocation;
+	private $pawnColor = '';
 
-	public function Pawn($color, int $relLoc) {
+	public function Pawn($color, $relLoc) {
 		$this->pawnColor = $color;
 		$this->relLocation = $relLoc;
 	}
 
-	public function setRelLocation(int $relLoc) {
+	public function setRelLocation($relLoc) {
 		$this->relLocation = $relLoc;
+	}
+
+	public function getColor() {
+		return $this->pawnColor;
 	}
 
 	public function getRelLocation() {
