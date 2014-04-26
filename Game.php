@@ -5,7 +5,7 @@ class Game {
 	private $deck;
 	//private Board $board;
 	//private $moveTypes = array("forward", "backward", "swap", "sorry");
-
+	
 
 	private $pawnLocations = array();
 
@@ -22,17 +22,17 @@ class Game {
 		$redPawns[1] = 1;
 		$redPawns[2] = 2;
 		$redPawns[3] = 3;
-
+				
 		$greenPawns[0] = 4;
 		$greenPawns[1] = 5;
 		$greenPawns[2] = 6;
 		$greenPawns[3] = 7;
-
+				
 		$yellowPawns[0] = 8;
 		$yellowPawns[1] = 9;
 		$yellowPawns[2] = 10;
 		$yellowPawns[3] = 11;
-
+				
 		$bluePawns[0] = 12;
 		$bluePawns[1] = 13;
 		$bluePawns[2] = 14;
@@ -48,10 +48,10 @@ class Game {
 		for ($i=0; $i<45; $i++){
 			print $i.":   ";
 			print $deck->cards[$i]->toString();
-
+				
 		}
 
-
+		
 
 		print $cardCount;
 
@@ -91,10 +91,10 @@ class Game {
 
 
 
-
+		
 	}
 
-
+	
 }
 
 ?>
