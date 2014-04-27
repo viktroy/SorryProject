@@ -61,7 +61,7 @@
 /* ^^^^^^^^^^^^ */
 
 .row {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 1052px;
 	height: 60px;
 }
@@ -80,6 +80,16 @@
 	width: 60px;
 	height: 60px;
 }
+
+.safeZoneyellow_piece{
+	background: #ffff00 url("./images/piece_yellow.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;
+	background-size: 49px;
+}
+
 .slideEnd_yellow {
 	background-image: url("./images/tile_startYellow.jpg");
 	background-repeat: no-repeat;
@@ -108,31 +118,31 @@
 
 }
 .startCell_yellow_4 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_yellow_4.jpg");
 }
 .startCell_yellow_3 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_yellow_3.jpg");
 }
 .startCell_yellow_2 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_yellow_2.jpg");
 }
 .startCell_yellow_1 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_yellow_1.jpg");
 }
 .startCell_yellow_0 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_yellow_0.jpg");
@@ -149,6 +159,15 @@
 	background: #ff0000;
 	width: 60px;
 	height: 60px;
+}
+
+.safeZonered_piece{
+	background: #ffff00 url("./images/piece_red.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;
+	background-size: 49px;
 }
 .slideEnd_red {
 	background-image: url("./images/tile_startRed.jpg");
@@ -175,31 +194,31 @@
 	background-size: 60px 60px;
 }
 .startCell_red_4 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_red_4.jpg");
 }
 .startCell_red_3 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_red_3.jpg");
 }
 .startCell_red_2 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_red_2.jpg");
 }
 .startCell_red_1 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_red_1.jpg");
 }
 .startCell_red_0 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_red_0.jpg");
@@ -216,6 +235,15 @@
 	background: #007c00;
 	width: 60px;
 	height: 60px;
+}
+
+.safeZonegreen_piece{
+	background: #ffff00 url("./images/piece_green.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;
+	background-size: 49px;
 }
 .slideEnd_green {
 	background-image: url("./images/tile_startGreen.jpg");
@@ -242,31 +270,31 @@
 	background-size: 60px 60px;
 }
 .startCell_green_4 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_green_4.jpg");
 }
 .startCell_green_3 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_green_3.jpg");
 }
 .startCell_green_2 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_green_2.jpg");
 }
 .startCell_green_1 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_green_1.jpg");
 }
 .startCell_green_0 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_green_0.jpg");
@@ -284,6 +312,14 @@
 	height: 60px;
 }
 
+.safeZoneblue_piece{
+	background: #ffff00 url("./images/piece_blue.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;
+	background-size: 49px;
+}
 .slideEnd_blue {
 	background-image: url("./images/tile_startBlue.jpg");
 	background-repeat: no-repeat;
@@ -308,31 +344,31 @@
 	background-size: 60px 60px;
 }
 .startCell_blue_4 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_blue_4.jpg");
 }
 .startCell_blue_3 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_blue_3.jpg");
 }
 .startCell_blue_2 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_blue_2.jpg");
 }
 .startCell_blue_1 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_blue_1.jpg");
 }
 .startCell_blue_0 {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	width: 182px;
 	height: 182px;
 	background-image: url("./images/start_blue_0.jpg");
@@ -406,6 +442,60 @@
 
 .pawnSlideEnd_green_yellow {
 	background-image: url("./images/tile_slideEndGreen_PieceYellow.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	width: 60px;
+	height: 60px;
+}
+
+.pawnSlide_red_yellow {
+	background-image: url("./images/tile_slideRed_PieceYellow.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	width: 60px;
+	height: 60px;
+}
+
+.pawnSlideStart_red_yellow {
+	background-image: url("./images/tile_slideStartRed_PieceYellow.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	width: 60px;
+	height: 60px;
+}
+
+.pawnSlideEnd_red_yellow {
+	background-image: url("./images/tile_slideEndRed_PieceYellow.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	width: 60px;
+	height: 60px;
+}
+
+.pawnSlide_blue_yellow {
+	background-image: url("./images/tile_slideBlue_PieceYellow.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	width: 60px;
+	height: 60px;
+}
+
+.pawnSlideStart_blue_yellow {
+	background-image: url("./images/tile_slideStartBlue_PieceYellow.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 60px 60px;
+	width: 60px;
+	height: 60px;
+}
+
+.pawnSlideEnd_blue_yellow {
+	background-image: url("./images/tile_slideEndBlue_PieceYellow.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 60px 60px;

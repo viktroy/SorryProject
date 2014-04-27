@@ -122,7 +122,13 @@ class Space {
 			$text = 'drawnDeck_'.$this->cardNum;
 		}
 		elseif ($this->isSafeZone){
-			$text = 'safeZone'.$this->color;
+			if ($this->isOccupied){
+				$text = 'safeZone'.$this->color.'_piece';
+			}
+			else {
+				$text = 'safeZone'.$this->color;
+			}
+			
 		}
 		elseif ($this->isHome){
 			$text = 'homeCell_'.$this->color;

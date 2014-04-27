@@ -2,73 +2,7 @@
 ini_set("memory_limit",-1);
 $movePawnClicked = array();
 
-$yellowSpaces = array(
-	0 => 4,
-	1 => 5,
-	2 => 6,
-	3 => 7,
-	4 => 8,
-	5 => 9,
-	6 => 10,
-	7 => 11,
-	8 => 12,
-	9 => 13,
-	10 => 14,
-	11 => 15,
-	12 => 31,
-	13 => 47,
-	14 => 63,
-	15 => 79,
-	16 => 95,
-	17 => 111,
-	18 => 127,
-	19 => 143,
-	20 => 159,
-	21 => 175,
-	22 => 191,
-	23 => 207,
-	24 => 223,
-	25 => 239,
-	26 => 255,
-	27 => 254,
-	28 => 253,
-	29 => 252,
-	30 => 251,
-	31 => 250,
-	32 => 249,
-	33 => 248,
-	34 => 247,
-	35 => 246,
-	36 => 245,
-	37 => 244,
-	38 => 243,
-	39 => 242,
-	40 => 241,
-	41 => 240,
-	42 => 224,
-	43 => 208,
-	44 => 192,
-	45 => 176,
-	46 => 160,
-	47 => 144,
-	48 => 128,
-	49 => 112,
-	50 => 96,
-	51 => 80,
-	52 => 64,
-	53 => 48,
-	54 => 32,
-	55 => 16,
-	56 => 0,
-	57 => 1,
-	58 => 2,
-	59 => 18,
-	60 => 34,
-	61 => 50,
-	62 => 66,
-	63 => 82,
-
-);
+include ('../pawnSpacesArray.php'); 
 
 include ('../Board.php');
 include ('../Space.php');
@@ -253,7 +187,7 @@ elseif($movePawnClicked[3]) {
 
 <html>
 	<head>
-		
+		<title>Sorry!</title>
 		<link href="master.css" rel="stylesheet" type="text/css">
 	</head>
 
@@ -298,7 +232,7 @@ elseif($movePawnClicked[3]) {
 		//$yellowPawns[0] = 0;
 		//$board->spaces[$yellowPawns[0]]->occupySpace('yellow');
 		for ($i=0; $i<4; $i++){
-			print $i;
+			//print $i;
 			$board->spaces[$yellowPawns[$i]->getRelLocation()]->occupySpace($yellowPawns[$i]->getColor());
 		}
 		
