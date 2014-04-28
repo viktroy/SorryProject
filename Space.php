@@ -3,32 +3,57 @@
 class Space {
 //Space object represents a single space on the game board.
 
-	private $absNumber = 0;					//Spaces are numbered 0-87.
+	private $absNumber;								//Absolute ID of the space as a cell of the 16 x 16 grid board display.
+	private $pawnsOnSpace = array();
+
+	//All spaces have $absNumber, but not all are traversable.
+	private $traversable;							//Is the space a valid location for some or all Pawns?
+	private $traversableNumber;						//Traversable spaces are numbered 0-87 for easier reference (starting from Yellow start).
+	private $relNumberYellow;						//Space number relative to Yellow Start, 0-66.
+	private $relNumberGreen;						//Space number relative to Green Start, 0-66.
+	private $relNumberRed;							//Space number relative to Red Start, 0-66.
+	private $relNumberBlue;							//Space number relative to Blue Start, 0-66.
 
 	//These properties only applicable for special spaces (not in outer track).
-	private $color = '';	
-	private $pieceColor = '';							
+	private $color;	
+	//private $pieceColor = '';							
 	private $isStart = false;
 	private $isHome = false;
 	private $isSafeZone = false;
 	private $isSlide = false;
 	private $isSlideStart = false;
 	private $isSlideEnd = false;
+	
 	private $isOccupied = false;
 	private $isDeck = false;
 	private $cardNum = '';
 	private $startPawnNum = 0;
 
+	//This property only applicable for Start and Home spaces.
+	private $numPawns;
 
-	function __construct($absNumber) {
-		$this->absNumber = $absNumber;	
+
+	function __construct($absNumber, $traversableNumber, $relNumberYellow, $relNumberGreen, $relNumberRed, $relNumberBlue) {
+		$this->absNumber = $absNumber;
+		if ($traversableNumber == NULL) {
+			$this->traversable = false;
+		} else {
+			$this->traversable = true;
+			$this->traversableNumber = $traversableNumber;
+		}
+
+		$this->relNumberYellow = $relNumberYellow;
+		$this->relNumberGreen = $relNumberGreen;
+		$this->relNumberRed = $relNumberRed;
+		$this->relNumberBlue = $relNumberBlue;
+
 		$this->isStart = false;
 		$this->isHome = false;
 		$this->isSafeZone = false;	
 		$this->isSlide = false;
 		$this->isSlideStart = false;
 		$this->isSlideEnd = false;
-		$this->isOccupied = false;
+		//$this->isOccupied = false;
 		$this->isDeck = false;
 		
 
@@ -100,18 +125,75 @@ class Space {
 		}
 	}
 
-	function occupySpace($color) {
+	function isSart() {
+		return $this->isStart;
+	}
+
+	function isHome() {
+		return $this->isHome;
+	}
+
+	function isSafeZone() {
+		return $this->isSafeZone;
+	}
+
+	function isSliderStart() {
+		return $this->isSlideStart;
+	}
+
+	function isSliderEnd() {
+		return $this->isSlideEnd;
+	}
+
+	function isSliderSpace() {
+		return $this->isSlideSpace;
+	}
+
+	function getColor() {
+		return $this->color;
+	}
+
+	function getTraversableID() {
+		return $this->traversableNumber;
+	}
+
+	function getAbsID() {
+		return $this->absNumber;
+	}
+
+	function occupySpace(Pawn $pawn) {
+		if ($this->isHome() or $this->isStart() or $this->isSafeZone()) {
+			if($color != $this->color) {
+				print "<br/>Error: " . $color . " Pawn cannot occupy " . $this->color . " Start, Home, or Safe Zone Space.<br/>";
+				return -1;
+			} elseif ($this->isSafeZone() and $this->isOccupied()) {
+				print "<br/>Error: One one Pawn allowed on a Space.<br/>";
+				return -1;
+			} else {
+				$this->isOccupied = true;
+				$this->pawnsOnSpace++;
+			}
+		} else 
+
 		$this->pieceColor = $color;
 
 		$this->isOccupied = true;
+		$this->
 	}
 
 	function unOccupySpace($color) {
+		if()
+
 		$this->pieceColor = '';
 
 		$this->isOccupied = false;
 	}
 
+	function isOccupied() {
+		return (count($pawnsOnSpace) > 0);
+	}
+
+	/*
 	function something() {
 		$text='';
 
@@ -165,84 +247,92 @@ class Space {
 		}
 		return $text;
 	}
+	*/
 
-	function displaySpaces() {
+	function displaySpace() {
 		print '<div class="cellBody">';
 
 		if ($this->isStart){
 			
-				print '<div class="startCell_'.$this->color.'">';
-				print  $this->absNumber . '</div>';
+				print '<div class="startCell_'.$this->color.'_'.$this->pawnsOnSpace.'">';
 			
 		}
 		elseif ($this->isDeck){
 			print '<div class="drawnDeck_'.$this->cardNum.'">';
-			print $this->absNumber . '</div>';
+			//print $this->absNumber . '</div>';
 		}
 		elseif ($this->isSafeZone){
 			
-				print '<div class="safeZone'.$this->color.'">';
-				print $this->absNumber . '</div>';
+			if ($this->isOccupied){
+				print '<div class="safeZone'.$this->color.'_piece">';
+			}
+			else {
+				$text = 'safeZone'.$this->color;
+			}
 			
 		}
 		elseif ($this->isHome){
 			
-				print '<div class="homeCell_'.$this->color.'">';
-				print $this->absNumber . '</div>';
+				print '<div class="homeCell_'.$this->color.'_'.$this->pawnsOnSpace.'">';
+				//print $this->absNumber . '</div>';
 			
 		}
 		elseif ($this->isSlide){
 			if ($this->isOccupied){
 				print '<div class="pawnSlide_'.$this->color.'_'.$this->pieceColor.'">';
-					print $this->absNumber;
-					print $this->pieceColor;
-				print '</div>';
+					//print $this->absNumber;
+					//print $this->pieceColor;
+				//print '</div>';
 			}
 			else {
 				print '<div class="slide_'.$this->color.'">';
-				print $this->absNumber.'</div>';
+				//print $this->absNumber.'</div>';
 			}	
 			
 		}
 		elseif ($this->isSlideStart){
 			if ($this->isOccupied){
 				print '<div class="pawnSlideStart_'.$this->color.'_'.$this->pieceColor.'">';
-					print $this->absNumber;
-					print $this->pieceColor;
-				print '</div>';
+					//print $this->absNumber;
+					//print $this->pieceColor;
+				//print '</div>';
 			}
 			else {
 				print '<div class="slideStart_'.$this->color.'">';
-				print $this->absNumber.'</div>';
+				//print $this->absNumber.'</div>';
 			}
 				
 		}
 		elseif ($this->isSlideEnd){
 			if ($this->isOccupied){
 				print '<div class="pawnSlideEnd_'.$this->color.'_'.$this->pieceColor.'">';
-				print $this->absNumber.'</div>';
+				//print $this->absNumber.'</div>';
 			}
 			else {
 				print '<div class="slideEnd_'.$this->color.'">';
-				print $this->absNumber.'</div>';
+				//print $this->absNumber.'</div>';
 			}
 				
 		}
 		else {
 				if ($this->isOccupied){
 					print '<div class="pawn_'.$this->pieceColor.'">';
-						print $this->absNumber;
-						print $this->pieceColor;
-					print '</div>';
+						//print $this->absNumber;
+						//print $this->pieceColor;
+					//print '</div>';
 				}
 				else {
 					print ' <div class="cell'.$this->absNumber.'">';
-						print $this->absNumber;
-					print '</div>';
+						//print $this->absNumber;
+					//print '</div>';
 				}
 			
 		}
 		
+		print $this->absNumber . '<br/>';
+		print 'Y' . $this->relNumberYellow . 'G' . $this->relNumberGreen . '<br/>R' . $this->relNumberRed . 'B' . $this->relNumberBlue;
+		print $this->pieceColor;
+		print '</div>';
 		print '</div>';
 	}
 

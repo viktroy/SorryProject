@@ -2,8 +2,15 @@
 
 class Game {
 
-	private $deck;
-	//private Board $board;
+	include ('Board.php');
+	include ('Player.php');
+
+	//private $deck;
+	private Board $board;
+	private Player $player1;
+	private Player $player2;
+	private Player $player3;
+	private Player $player4;
 	//private $moveTypes = array("forward", "backward", "swap", "sorry");
 	
 
@@ -38,6 +45,7 @@ class Game {
 		$bluePawns[2] = 14;
 		$bluePawns[3] = 15;
 
+/*
 		$deck = new Deck;
 		print "deck created <br />";
 
@@ -45,10 +53,11 @@ class Game {
 
 		print "deck shuffled <br />";
 
+
 		for ($i=0; $i<45; $i++){
 			print $i.":   ";
 			print $deck->cards[$i]->toString();
-				
+*/				
 		}
 
 		
@@ -91,6 +100,10 @@ class Game {
 
 
 
+		
+	}
+
+	public function getLegalMoves(Player $player, Card $card) {
 		
 	}
 

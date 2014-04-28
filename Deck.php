@@ -2,7 +2,7 @@
 
 class Deck extends ArrayObject {
 
-	private $deck;
+	private $deck = array();
 
 	private $cardDescrips = array(      1 => "Move a Pawn from Start or 1 space forward.",
 								           "Move a Pawn from Start or 2 spaces forward.",
@@ -36,45 +36,43 @@ class Deck extends ArrayObject {
 								 	       4,
 								"sorry" => 4 );
 		//Construct Card objects.
-		$cards = array();
-
 
 		for ($i=0; $i < $cardDist[1]; $i++) {
 							//val, f, b, swap, sorry, start, split, again	
-			$this->cards[] = new Card(1, $this->cardDescrips[1], 1, 0, false, false, true, false, false);
+			$this->deck[] = new Card(1, $this->cardDescrips[1], 1, 0, false, false, true, false, false);
 		}
 		for ($i=0; $i < $cardDist[2]; $i++) {
-			$this->cards[] = new Card(2, $this->cardDescrips[2], 2, 0, false, false, true, false, true);
+			$this->deck[] = new Card(2, $this->cardDescrips[2], 2, 0, false, false, true, false, true);
 		}
 		for ($i=0; $i < $cardDist[3]; $i++) {
-			$this->cards[] = new Card(3, $this->cardDescrips[3], 3, 0, false, false, false, false, false);
+			$this->deck[] = new Card(3, $this->cardDescrips[3], 3, 0, false, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[4]; $i++) {
-			$this->cards[] = new Card(-4, $this->cardDescrips[4], 0, 4, false, false, false, false, false);
+			$this->deck[] = new Card(-4, $this->cardDescrips[4], 0, 4, false, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[5]; $i++) {
-			$this->cards[] = new Card(5, $this->cardDescrips[5], 5, 0, false, false, false, false, false);
+			$this->deck[] = new Card(5, $this->cardDescrips[5], 5, 0, false, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[7]; $i++) {
-			$this->cards[] = new Card(7, $this->cardDescrips[7], 7, 0, false, false, false, true, false);
+			$this->deck[] = new Card(7, $this->cardDescrips[7], 7, 0, false, false, false, true, false);
 		}
 		for ($i=0; $i < $cardDist[8]; $i++) {
-			$this->cards[] = new Card(8, $this->cardDescrips[8], 8, 0, false, false, false, false, false);
+			$this->deck[] = new Card(8, $this->cardDescrips[8], 8, 0, false, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[10]; $i++) {
-			$this->cards[] = new Card(10, $this->cardDescrips[10], 10, 1, false, false, false, false, false);
+			$this->deck[] = new Card(10, $this->cardDescrips[10], 10, 1, false, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[11]; $i++) {
-			$this->cards[] = new Card(11, $this->cardDescrips[11], 11, 0, true, false, false, false, false);
+			$this->deck[] = new Card(11, $this->cardDescrips[11], 11, 0, true, false, false, false, false);
 		}
 		for ($i=0; $i < $cardDist[12]; $i++) {
-			$this->cards[] = new Card(12, $this->cardDescrips[12], 12, 0, false, false, false, false, false);
+			$this->deck[] = new Card(12, $this->cardDescrips[12], 12, 0, false, false, false, false, false);
 		}
 		for ($i=0; $i<$cardDist["sorry"]; $i++) {
-			$this->cards[] = new Card("sorry", $this->cardDescrips["sorry"], 0, 0, false, true, true, false, false);
+			$this->deck[] = new Card("sorry", $this->cardDescrips["sorry"], 0, 0, false, true, true, false, false);
 		}
 
-		$numCards = count($this->cards);
+		$numCards = count($this->deck);
 		print "Number of Cards: ".$numCards."<br />";
 
 		/*for ($i=0; $i<45; $i++){
@@ -106,17 +104,17 @@ class Deck extends ArrayObject {
 	}*/
 
 	function addCard(Card $card) {
-		$deck[] = $card;
+		$this->deck[] = $card;
 
 	}
 
 	function drawCard() {
-		$topCard = array_shift($deck);
+		$topCard = array_shift($this->deck);
 		return $topCard;
 	}
 
 	function deckShuffle() {
-		shuffle($this->cards);
+		shuffle($this->deck);
 		/*$isSuffled = false;
 		while (! $isSuffled) {
 			print "test";
@@ -135,7 +133,7 @@ class Deck extends ArrayObject {
 	function toString() {
 		$deckStr = '';
 		$debug = 0;
-
+	/*
 		for ($i=0; $i<45; $i++){
 			print $i;
 			$deckStr .= $deck[$i]->toString() . "<br />";
@@ -144,6 +142,10 @@ class Deck extends ArrayObject {
 			print $debug;
 			$deckStr .= $cards->toString() . "\n";
 		}*/
+	
+		foreach ($this->deck as $card){
+			$deckStr .= $card->toString() . "\n";
+		}
 		return $deckStr;
 	}
 
