@@ -2,12 +2,13 @@
 
 class Pawn {
 
+	private $location;
 	private $relLocation;
 	private $pawnColor = '';
 
-	public function Pawn($color, $relLoc) {
+	public function __construct($color, $location) {
 		$this->pawnColor = $color;
-		$this->relLocation = $relLoc;
+		$this->location = $location;
 	}
 
 	public function setRelLocation($relLoc) {

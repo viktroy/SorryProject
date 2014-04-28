@@ -107,7 +107,7 @@ class Game {
 		$board->spaces[$bluePawns[2]]->occupySpace('blue');
 		$board->spaces[$bluePawns[3]]->occupySpace('blue');*/
 
-
+		$pawn1Yellow = new Pawn('yellow', $board->spaces[1]);		
 
 		$playerYellow = new Player('yellow');
 		$playerRed = new Player('red');
@@ -116,6 +116,8 @@ class Game {
 
 		$playerYellowPawns = $playerYellow->getPawnLocations();
 
+		/*$playerYellowPawns[0]->getRelLocation()
+		->occupySpace($playerYellowPawns[0])*/
 
 		/*$yellowPawn1 = $playerYellow->pawn1;
 		$yellowPawn2 = $playerYellow->pawn2;
