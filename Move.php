@@ -2,9 +2,9 @@
 
 class Move {
 	
-	private Pawn $movingPwn;
-	private Space $start;
-	private Space $end;
+	private $movingPwn;
+	private $start;
+	private $end;
 
 	function __construct(Pawn $pawn, Space $start, Space $end) {
 		$this->movingPwn = $pawn;
@@ -12,13 +12,13 @@ class Move {
 		$this->end = $end;
 	}
 
-	function __construct($moveType, $numSpaces) {
+	/*function __construct($moveType, $numSpaces) {
 
 	}
 
 	function __construct($moveType) {
 		
-	}
+	}*/
 
 	function getPawn() {
 		return $movingPwn;

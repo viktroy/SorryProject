@@ -3,11 +3,11 @@
 class Player {
 //Player class represents a player via the positions of their Pawns on the board.
 
-	private Pawn $pawn1 = '';
-	private Pawn $pawn2 = '';
-	private Pawn $pawn3 = '';
-	private Pawn $pawn4 = '';
-	private Card $currCard = '';
+	private $pawn1 = '';
+	private $pawn2 = '';
+	private $pawn3 = '';
+	private $pawn4 = '';
+	private $currCard = '';
 
 	function __construct(Pawn $pawn1, Pawn $pawn2, Pawn $pawn3, Pawn $pawn4) {
 		$this->pawn1 = $pawn1;
@@ -26,7 +26,7 @@ class Player {
 	}
 
 	public function setCard(Card $card) {
-		$this->$currCard = $card
+		$this->$currCard = $card;
 	}
 }
 

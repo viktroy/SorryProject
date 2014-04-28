@@ -1,7 +1,7 @@
 <?php
 
 //Include Space.php
-include("Space.php");
+//include("Space.php");
 
 //Define debug constants.
 define("DEBUG_REL_SPACE_VALS", FALSE);
@@ -17,8 +17,8 @@ class Board {
 	Note: For basic display, the board is shown as a 16 X 16 grid of Spaces. Only the outer track, Start, Home, and Safe Zone spaces are valid Pawn positions.
 */
 
-	var $spaces = array();			//For simple board display, each square in 16 x 16 grid is a Space object, but not all are used.
-	var $traversable = array();
+	public $spaces = array();			//For simple board display, each square in 16 x 16 grid is a Space object, but not all are used.
+	public $traversable = array();
 
 	//Declare $cellIDs, an array which maps the 88 traversable Spaces on the Board to their absolute cell ID's within the 16 x 16 grid.
 	private $cellIDs = array(	 0 => 19,	//Yellow Start

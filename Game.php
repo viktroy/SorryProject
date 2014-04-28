@@ -3,6 +3,8 @@
 	include ('Player.php');
 	include ('Deck.php');
 	include ('Card.php');
+	include ('Pawn.php');
+	include ('Space.php');
 
 class Game {
 
@@ -106,15 +108,38 @@ class Game {
 		$board->spaces[$bluePawns[1]]->occupySpace('blue');
 		$board->spaces[$bluePawns[2]]->occupySpace('blue');
 		$board->spaces[$bluePawns[3]]->occupySpace('blue');*/
+		$yellowHomeSpace = $this->board->spaces[$board->cellID(0)];
+		
 
-		$pawn1Yellow = new Pawn('yellow', $board->spaces[1]);		
+		$pawn1Yellow = new Pawn('yellow', $yellowHomeSpace);	
+		$pawn2Yellow = new Pawn('yellow', $yellowHomeSpace);
+		$pawn3Yellow = new Pawn('yellow', $yellowHomeSpace);	
+		$pawn4Yellow = new Pawn('yellow', $yellowHomeSpace);	
 
-		$playerYellow = new Player('yellow');
-		$playerRed = new Player('red');
-		$playerGreen = new Player('green');
-		$playerBlue = new Player('blue');
+		$pawn1Green = new Pawn('green', $board->spaces[1]);
+		$pawn2Green = new Pawn('green', $board->spaces[1]);
+		$pawn3Green = new Pawn('green', $board->spaces[1]);
+		$pawn4Green = new Pawn('green', $board->spaces[1]);
 
-		$playerYellowPawns = $playerYellow->getPawnLocations();
+		$pawn1Red = new Pawn('red', $board->spaces[2]);
+		$pawn2Red = new Pawn('red', $board->spaces[2]);
+		$pawn3Red = new Pawn('red', $board->spaces[2]);
+		$pawn4Red = new Pawn('red', $board->spaces[2]);
+
+		$pawn1Blue = new Pawn('blue', $board->spaces[3]);
+		$pawn2Blue = new Pawn('blue', $board->spaces[3]);
+		$pawn3Blue = new Pawn('blue', $board->spaces[3]);
+		$pawn4Blue = new Pawn('blue', $board->spaces[3]);
+
+
+		$playerYellow = new Player($pawn1Yellow, $pawn2Yellow, $pawn3Yellow, $pawn4Yellow);
+		$playerRed = new Player($pawn1Red, $pawn2Red, $pawn3Red, $pawn4Red);
+		$playerGreen = new Player($pawn1Green, $pawn2Green, $pawn3Green, $pawn4Green);
+		$playerBlue = new Player($pawn1Blue, $pawn2Blue, $pawn3Blue, $pawn4Blue);
+
+		
+
+	//	$playerYellowPawns = $playerYellow->getPawnLocations();
 
 		/*$playerYellowPawns[0]->getRelLocation()
 		->occupySpace($playerYellowPawns[0])*/
