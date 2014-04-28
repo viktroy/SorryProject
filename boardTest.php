@@ -1,5 +1,5 @@
 <?php
-
+print '<head><link href="master.css" rel="stylesheet" type="text/css"></head>';
 define("DEBUG", TRUE);
 
 include("../debugHeader.php");
@@ -14,6 +14,6 @@ $game = new Game();
 $game->startGame();
 //var_dump($board->getSliders());
 
-print '<head><link href="master.css" rel="stylesheet" type="text/css"></head>';
+
 
 ?>

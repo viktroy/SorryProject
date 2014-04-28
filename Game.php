@@ -46,7 +46,7 @@ class Game {
 		$bluePawns[1] = 13;
 		$bluePawns[2] = 14;
 		$bluePawns[3] = 15;
-		
+
 		$board = new Board;
 
 		$deck = new Deck;
@@ -74,11 +74,9 @@ class Game {
 			print "deck shuffled <br />";
 		}
 
-		$board->spaces[101]->makeDeckSpace($deck->cards[$cardCount]->cardValue());
+		$board->spaces[101]->makeDeckSpace($deck->deck[0]->cardValue());
 
-		print '<div class="board">';
-		$board->displayBoard();
-		print '</div>';
+	
 
 
 		/*$board->spaces[$yellowPawns[0]]->occupySpace('yellow');
@@ -108,7 +106,10 @@ class Game {
 		$playerGreen = new Player('green');
 		$playerBlue = new Player('blue');
 
-		$yellowPawn1 = $playerYellow->pawn1;
+		$playerYellowPawns = $playerYellow->getPawnLocations();
+
+
+		/*$yellowPawn1 = $playerYellow->pawn1;
 		$yellowPawn2 = $playerYellow->pawn2;
 		$yellowPawn3 = $playerYellow->pawn3;
 		$yellowPawn4 = $playerYellow->pawn4;
@@ -125,7 +126,9 @@ class Game {
 		$bluePawn3 = $playerBlue->pawn3;
 		$bluePawn4 = $playerBlue->pawn4;
 
-		$yellowPawn1->location->occupySpace($yellowPawn1);
+
+
+		$this->yellowPawn1->location->occupySpace($yellowPawn1);
 		$yellowPawn2->location->occupySpace($yellowPawn2);
 		$yellowPawn3->location->occupySpace($yellowPawn3);
 		$yellowPawn4->location->occupySpace($yellowPawn4);
@@ -140,9 +143,11 @@ class Game {
 		$bluePawn1->location->occupySpace($bluePawn1);
 		$bluePawn2->location->occupySpace($bluePawn2);
 		$bluePawn3->location->occupySpace($bluePawn3);
-		$bluePawn4->location->occupySpace($bluePawn4);
+		$bluePawn4->location->occupySpace($bluePawn4);*/
 		
+		print '<div class="board">';
 		$board->displayBoard();
+		print '</div>';
 		
 	}
 

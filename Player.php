@@ -5,11 +5,11 @@ class Player {
 
 	
 
-	private $pawn1;
-	private $pawn2;
-	private $pawn3;
-	private $pawn4;
-	private $currCard;
+	public $pawn1;
+	public $pawn2;
+	public $pawn3;
+	public $pawn4;
+	public $currCard;
 
 	function __construct($color) {
 		$this->pawn1 = new Pawn($color);
@@ -46,7 +46,7 @@ class Player {
 	}
 
 	public function getPawnLocations() {
-		$pawns = array($pawn1->getRelLocation(), $pawn2->getRelLocation(), $pawn3->getRelLocation(), $pawn4->getRelLocation());
+		$pawns = array($this->pawn1->getRelLocation(), $this->pawn2->getRelLocation(), $this->pawn3->getRelLocation(), $this->pawn4->getRelLocation());
 		return $pawns;
 	}
 

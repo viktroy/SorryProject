@@ -2,7 +2,7 @@
 
 class Deck extends ArrayObject {
 
-	private $deck = array();
+	public $deck = array();
 
 	private $cardDescrips = array(      1 => "Move a Pawn from Start or 1 space forward.",
 								           "Move a Pawn from Start or 2 spaces forward.",
