@@ -3,16 +3,19 @@
 class Pawn {
 
 	private $location;
-	private $relLocation;
+	//private $relLocation;
 	private $pawnColor = '';
 
 	public function __construct($color, $location) {
 		$this->pawnColor = $color;
 		$this->location = $location;
+
+		$this->location->occupy($this);
 	}
 
-	public function setRelLocation($relLoc) {
-		$this->relLocation = $relLoc;
+	public function setLocation(Space $space) {
+		$this->location = $space;
+		$this->location->occupy($this);
 	}
 
 	public function getColor() {
@@ -20,7 +23,16 @@ class Pawn {
 	}
 
 	public function getRelLocation() {
-		return $this->relLocation;
+		switch ($this->pawnColor) {
+			case 'yellow':
+				return $this->location->relNumberYellow;
+			case 'green':
+				return $this->location->relNumberGreen;
+			case 'red':
+				return $this->location->relNumberRed;
+			case 'blue':
+				return $this->location->relNumberBlue;
+		}
 	}
 
 	public function getAbsLocation() {

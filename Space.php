@@ -8,11 +8,11 @@ class Space {
 
 	//All spaces have $absNumber, but not all are traversable.
 	private $traversable;							//Is the space a valid location for some or all Pawns?
-	private $traversableNumber;						//Traversable spaces are numbered 0-87 for easier reference (starting from Yellow start).
-	private $relNumberYellow;						//Space number relative to Yellow Start, 0-66.
-	private $relNumberGreen;						//Space number relative to Green Start, 0-66.
-	private $relNumberRed;							//Space number relative to Red Start, 0-66.
-	private $relNumberBlue;							//Space number relative to Blue Start, 0-66.
+	public $traversableNumber;						//Traversable spaces are numbered 0-87 for easier reference (starting from Yellow start).
+	public $relNumberYellow;						//Space number relative to Yellow Start, 0-66.
+	public $relNumberGreen;						//Space number relative to Green Start, 0-66.
+	public $relNumberRed;							//Space number relative to Red Start, 0-66.
+	public $relNumberBlue;							//Space number relative to Blue Start, 0-66.
 
 	//These properties only applicable for special spaces (not in outer track).
 	private $color;	
