@@ -1,18 +1,18 @@
 <?php
-
+	include ('../Move.php');
 class Card {
 //Card class represents an individual card and its effect(s).
 
-	include ('../Move.php');
+
 
 	private $cardVal;
 	private $moves;
 	private $forward;
 	private $backward;
-	private bool $swap;					//Does the card allow a swap move (aka an 11 card)?
-	private bool $sorry;				//Is it a Sorry card?
-	private bool $split;				//Does the card allow the spaces to be split between two pawns (aka a 7 card)?
-	private bool $start;				//Does the card allow leaving Start (aka a 1 or 2 card)?
+	private $swap;					//Does the card allow a swap move (aka an 11 card)?
+	private $sorry;				//Is it a Sorry card?
+	private $split;				//Does the card allow the spaces to be split between two pawns (aka a 7 card)?
+	private $start;				//Does the card allow leaving Start (aka a 1 or 2 card)?
 	private $drawAgain;
 	private $description;
 

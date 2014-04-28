@@ -1,16 +1,18 @@
 <?php
+	include ('Board.php');
+	include ('Player.php');
+	include ('Deck.php');
+	include ('Card.php');
 
 class Game {
 
-	include ('Board.php');
-	include ('Player.php');
 
 	//private $deck;
-	private Board $board;
-	private Player $player1;
-	private Player $player2;
-	private Player $player3;
-	private Player $player4;
+	private $board;
+	private $player1;
+	private $player2;
+	private $player3;
+	private $player4;
 	//private $moveTypes = array("forward", "backward", "swap", "sorry");
 	
 
@@ -44,8 +46,9 @@ class Game {
 		$bluePawns[1] = 13;
 		$bluePawns[2] = 14;
 		$bluePawns[3] = 15;
+		
+		$board = new Board;
 
-/*
 		$deck = new Deck;
 		print "deck created <br />";
 
@@ -53,13 +56,13 @@ class Game {
 
 		print "deck shuffled <br />";
 
-
+/*
 		for ($i=0; $i<45; $i++){
 			print $i.":   ";
 			print $deck->cards[$i]->toString();
-*/				
+			
 		}
-
+*/
 		
 
 		print $cardCount;
@@ -100,6 +103,46 @@ class Game {
 
 
 
+		$playerYellow = new Player('yellow');
+		$playerRed = new Player('red');
+		$playerGreen = new Player('green');
+		$playerBlue = new Player('blue');
+
+		$yellowPawn1 = $playerYellow->pawn1;
+		$yellowPawn2 = $playerYellow->pawn2;
+		$yellowPawn3 = $playerYellow->pawn3;
+		$yellowPawn4 = $playerYellow->pawn4;
+		$redPawn1 = $playerRed->pawn1;
+		$redPawn2 = $playerRed->pawn2;
+		$redPawn3 = $playerRed->pawn3;
+		$redPawn4 = $playerRed->pawn4;
+		$greenPawn1 = $playerGreen->pawn1;
+		$greenPawn2 = $playerGreen->pawn2;
+		$greenPawn3 = $playerGreen->pawn3;
+		$greenPawn4 = $playerGreen->pawn4;
+		$bluePawn1 = $playerBlue->pawn1;
+		$bluePawn2 = $playerBlue->pawn2;
+		$bluePawn3 = $playerBlue->pawn3;
+		$bluePawn4 = $playerBlue->pawn4;
+
+		$yellowPawn1->location->occupySpace($yellowPawn1);
+		$yellowPawn2->location->occupySpace($yellowPawn2);
+		$yellowPawn3->location->occupySpace($yellowPawn3);
+		$yellowPawn4->location->occupySpace($yellowPawn4);
+		$redPawn1->location->occupySpace($redPawn1);
+		$redPawn2->location->occupySpace($redPawn2);
+		$redPawn3->location->occupySpace($redPawn3);
+		$redPawn4->location->occupySpace($redPawn4);
+		$greenPawn1->location->occupySpace($greenPawn1);
+		$greenPawn2->location->occupySpace($greenPawn2);
+		$greenPawn3->location->occupySpace($greenPawn3);
+		$greenPawn4->location->occupySpace($greenPawn4);
+		$bluePawn1->location->occupySpace($bluePawn1);
+		$bluePawn2->location->occupySpace($bluePawn2);
+		$bluePawn3->location->occupySpace($bluePawn3);
+		$bluePawn4->location->occupySpace($bluePawn4);
+		
+		$board->displayBoard();
 		
 	}
 
@@ -107,6 +150,17 @@ class Game {
 		
 	}
 
+	public function getPlayerMove($move) {
+		$pawn = $move->movingPwn;
+	
+		
+		$move->start->unOccupySpace($pawn);
+		$move->end->occupySpace($pawn);
+	}
+
+	public function playerWon() {
+
+	}
 	
 }
 

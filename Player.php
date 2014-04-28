@@ -1,15 +1,15 @@
 <?php
-
+include ('Pawn.php');
 class Player {
 //Player class represents a player via the positions of their Pawns on the board.
 
-	include ('../Pawn.php');
+	
 
-	private Pawn $pawn1;
-	private Pawn $pawn2;
-	private Pawn $pawn3;
-	private Pawn $pawn4;
-	private Card $currCard;
+	private $pawn1;
+	private $pawn2;
+	private $pawn3;
+	private $pawn4;
+	private $currCard;
 
 	function __construct($color) {
 		$this->pawn1 = new Pawn($color);
@@ -34,9 +34,9 @@ class Player {
 
 				}
 				if ($endLoc > 66) {																//If adding forward would put the piece past Home, 
-					$endLoc %= 60
+					$endLoc %= 60;
 				}
-				$possMoves[] = new Move($this->pawn1, $this->pawn1->getRelLocation() + )		//left off here
+			//	$possMoves[] = new Move($this->pawn1, $this->pawn1->getRelLocation() + )		//left off here
 			}
 		}
 	}
@@ -51,7 +51,7 @@ class Player {
 	}
 
 	public function setCard(Card $card) {
-		$this->$currCard = $card
+		$this->$currCard = $card;
 	}
 }
 

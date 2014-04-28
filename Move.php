@@ -4,11 +4,11 @@ class Move {
 //Move object represents a legal move which a player could choose based on the card they have drawn. A Move has a Pawn, a start Space, and an End space.
 //Note that a move can cause a secondary effect move, for example with a swap or a Sorry card.
 	
-	private Pawn $movingPwn;
-	private Space $start;
-	private Space $end;
+	private $movingPwn;
+	private $start;
+	private $end;
 
-	private Move $effectMove;
+	private $effectMove;
 
 	function __construct(Pawn $pawn, Space $start, Space $end, bool $isSwap, bool $isSplit) {
 		$this->movingPwn = $pawn;

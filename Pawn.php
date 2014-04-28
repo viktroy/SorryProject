@@ -2,7 +2,7 @@
 
 class Pawn {
 
-	private Space $location;
+	private $location;
 	private $pawnColor = '';
 
 	public function __construct($color, Space $location) {
