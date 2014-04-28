@@ -148,7 +148,7 @@
 	background-image: url("./images/start_yellow_0.jpg");
 }
 
-.homeCell_yellow {
+.homeCell_yellow_0 {
 	background-image: url("./images/home_yellow.jpg");
 	width: 182px;
 	height: 182px;
@@ -248,7 +248,7 @@
 	background-image: url("./images/start_red_0.jpg");
 }
 
-.homeCell_red {
+.homeCell_red_0 {
 	background-image: url("./images/home_red.jpg");
 	width: 182px;
 	height: 182px;
@@ -348,7 +348,7 @@
 	height: 182px;
 	background-image: url("./images/start_green_0.jpg");
 }
-.homeCell_green {
+.homeCell_green_0 {
 	background-image: url("./images/home_green.jpg");
 	width: 182px;
 	height: 182px;
@@ -446,7 +446,7 @@
 	height: 182px;
 	background-image: url("./images/start_blue_0.jpg");
 }
-.homeCell_blue {
+.homeCell_blue_0 {
 	background-image: url("./images/home_blue.jpg");
 	width: 182px;
 	height: 182px;

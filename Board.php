@@ -6,7 +6,7 @@ include("Space.php");
 //Define debug constants.
 define("DEBUG_REL_SPACE_VALS", FALSE);
 define("DEBUG_SPACE_CREATION", FALSE);
-define("DEBUG_SPECIAL_SPACE", TRUE);
+define("DEBUG_SPECIAL_SPACE", FALSE);
 
 class Board {
 
@@ -227,7 +227,7 @@ class Board {
 		}
 	}
 
-
+	/*
 	public function getSliders() {
 		$sliders = array();
 		$sliderID = 0;
@@ -251,10 +251,11 @@ class Board {
 		}
 		return $sliders;
 	}
+	*/
 
 	public function displayBoard(){
 		$num = 0;
-		//Create 88 Space instances for Sorry board.
+		//print "<div class='board'>";
 		for ($i = 0; $i < 16; $i++) {
 			print "<div class='row'>";
 
@@ -267,6 +268,8 @@ class Board {
 
 			print "</div>";
 		}
+
+		//print "</div>";
 	}
 }
 

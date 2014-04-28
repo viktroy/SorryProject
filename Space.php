@@ -162,31 +162,41 @@ class Space {
 	}
 
 	function occupySpace(Pawn $pawn) {
+		//If Space is color-specific, check that $pawn is the correct color.
 		if ($this->isHome() or $this->isStart() or $this->isSafeZone()) {
 			if($color != $this->color) {
 				print "<br/>Error: " . $color . " Pawn cannot occupy " . $this->color . " Start, Home, or Safe Zone Space.<br/>";
 				return -1;
-			} elseif ($this->isSafeZone() and $this->isOccupied()) {
-				print "<br/>Error: One one Pawn allowed on a Space.<br/>";
+			} //If Space is Safe Zone, check that it is not already occupied. 
+			elseif ($this->isSafeZone() and $this->isOccupied()) {
+				print "<br/>Error: Only one Pawn allowed on a Space.<br/>";
 				return -1;
-			} else {
-				$this->isOccupied = true;
-				$this->pawnsOnSpace++;
+			} //If neither error is found, add $pawn to $pawnsOnSpace.
+			else {
+				//$this->isOccupied = true;
+				$this->pawnsOnSpace[] = $pawn;
 			}
-		} else 
+		} //If Space is not color-specific, add $pawn to $pawnsOnSpace.
+		else {
+			$this->pawnsOnSpace[] = $pawn;
+			//Note: We assume that a Swap or Sorry Move will already have been handled and that the Space will first be unOccupied.
+		}
 
-		$this->pieceColor = $color;
+		//$this->pieceColor = $color;
 
-		$this->isOccupied = true;
-		$this->
+		//$this->isOccupied = true;
+		//$this->
 	}
 
 	function unOccupySpace($color) {
-		if()
+		/*Find a $color Pawn on Space and remove it. It doesn't matter which because a side from Start and Home, there will never be more than 
+		one Pawn of the same color on the same Space.*/
 
-		$this->pieceColor = '';
-
-		$this->isOccupied = false;
+		for ($i = 0; $i < count($this->pawnsOnSpace); $i ++) {
+			if ($this->pawnsOnSpace[$i]->getColor() == $color) {
+				array_splice($this->pawnsOnSpace, $i, 1);			//array_splice() rather than unset() to keep keys consecutive indexes to prevent non-object errors for indexes that no longer exist.
+			}
+		}
 	}
 
 	function isOccupied() {
@@ -254,7 +264,7 @@ class Space {
 
 		if ($this->isStart){
 			
-				print '<div class="startCell_'.$this->color.'_'.$this->pawnsOnSpace.'">';
+				print '<div class="startCell_'.$this->color.'_'.count($this->pawnsOnSpace).'">';
 			
 		}
 		elseif ($this->isDeck){
@@ -267,19 +277,19 @@ class Space {
 				print '<div class="safeZone'.$this->color.'_piece">';
 			}
 			else {
-				$text = 'safeZone'.$this->color;
+				print '<div class="safeZone'.$this->color.'">';
 			}
 			
 		}
 		elseif ($this->isHome){
 			
-				print '<div class="homeCell_'.$this->color.'_'.$this->pawnsOnSpace.'">';
+				print '<div class="homeCell_'.$this->color.'_'.count($this->pawnsOnSpace).'">';
 				//print $this->absNumber . '</div>';
 			
 		}
 		elseif ($this->isSlide){
 			if ($this->isOccupied){
-				print '<div class="pawnSlide_'.$this->color.'_'.$this->pieceColor.'">';
+				print '<div class="pawnSlide_'.$this->color.'_'.$this->pawnsOnSpace[0]->getColor().'">';
 					//print $this->absNumber;
 					//print $this->pieceColor;
 				//print '</div>';
@@ -292,7 +302,7 @@ class Space {
 		}
 		elseif ($this->isSlideStart){
 			if ($this->isOccupied){
-				print '<div class="pawnSlideStart_'.$this->color.'_'.$this->pieceColor.'">';
+				print '<div class="pawnSlideStart_'.$this->color.'_'.$this->pawnsOnSpace[0]->getColor().'">';
 					//print $this->absNumber;
 					//print $this->pieceColor;
 				//print '</div>';
@@ -305,7 +315,7 @@ class Space {
 		}
 		elseif ($this->isSlideEnd){
 			if ($this->isOccupied){
-				print '<div class="pawnSlideEnd_'.$this->color.'_'.$this->pieceColor.'">';
+				print '<div class="pawnSlideEnd_'.$this->color.'_'.$this->pawnsOnSpace[0]->getColor().'">';
 				//print $this->absNumber.'</div>';
 			}
 			else {
@@ -316,7 +326,7 @@ class Space {
 		}
 		else {
 				if ($this->isOccupied){
-					print '<div class="pawn_'.$this->pieceColor.'">';
+					print '<div class="pawn_'.$this->pawnsOnSpace[0]->getColor().'">';
 						//print $this->absNumber;
 						//print $this->pieceColor;
 					//print '</div>';
@@ -331,7 +341,7 @@ class Space {
 		
 		print $this->absNumber . '<br/>';
 		print 'Y' . $this->relNumberYellow . 'G' . $this->relNumberGreen . '<br/>R' . $this->relNumberRed . 'B' . $this->relNumberBlue;
-		print $this->pieceColor;
+		//print $this->pieceColor;
 		print '</div>';
 		print '</div>';
 	}
