@@ -13,16 +13,24 @@ class Game {
 	private $player2;
 	private $player3;
 	private $player4;
+	private $winner;
 	//private $moveTypes = array("forward", "backward", "swap", "sorry");
 	
 
 	private $pawnLocations = array();
 
 	function continueGame($decks) {
-		$decks = $deck;
-		$deck->drawCard();
+		$gameOver = playerWon();
+		if ($gameOver){
+			print '<div class="winner_'.$this->winner.'">';
+			print '</div>';
+		} else {
+			$decks = $deck;
+			$deck->drawCard();
 
-		$board->displayBoard();
+			$board->displayBoard();
+		}
+		
 	}
 
 	function startGame() {
@@ -164,7 +172,27 @@ class Game {
 	}
 
 	public function playerWon() {
+	
+		$yellowHome = $this->board->spaces[69]->pawnsOnSpace;
+		$greenHome = $this->board->spaces[75]->pawnsOnSpace;
+		$redHome = $this->board->spaces[81]->pawnsOnSpace;
+		$blueHome = $this->board->spaces[87]->pawnsOnSpace;
 
+		if ($yellowHome==4){
+			$this->winner = 'yellow';
+			return true;
+		} elseif ($greenHome==4){
+			$this->winner = 'green';
+			return true;
+		} elseif ($redHome==4){
+			$this->winner = 'red';
+			return true;
+		} elseif ($blueHome==4){
+			$this->winner = 'blue';
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 }

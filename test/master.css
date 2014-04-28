@@ -819,72 +819,34 @@
 
 }
 
+.winner_yellow {
+	width: 1000px;
+	height: 800px;
+	background: url("./images/something.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
+.winner_red {
+	width: 1000px;
+	height: 800px;
+	background: url("./images/something.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
-/*
+.winner_green {
+	width: 1000px;
+	height: 800px;
+	background: url("./images/something.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
-.cell3 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
+.winner_blue {
+	width: 1000px;
+	height: 800px;
+	background: url("./images/something.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
 }
-.cell4 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell5 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell6 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell7 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell8 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell9 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell10 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell11 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell12 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell13 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell14 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}
-.cell15 {
-	border: 1px solid red;
-	width: 100px;
-	height: 100px;
-}*/

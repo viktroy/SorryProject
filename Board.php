@@ -91,7 +91,7 @@ class Board {
 		$this->setSpecialSpaces();
 	}
 
-	private function cellID($traversableID) {
+	public function cellID($traversableID) {
 		return $this->cellIDs[$traversableID];
 	}
 
