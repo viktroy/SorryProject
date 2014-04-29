@@ -14,6 +14,7 @@ class Pawn {
 	}
 
 	public function setLocation(Space $space) {
+		$this->location->unOccupy($this->pawnColor);
 		$this->location = $space;
 		$this->location->occupy($this);
 	}

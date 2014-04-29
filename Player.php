@@ -28,6 +28,8 @@ class Player {
 	public function setCard(Card $card) {
 		$this->$currCard = $card;
 	}
+
+	public function get
 }
 
 ?>
